@@ -130,10 +130,3 @@ for (let i = 0; i < accordionBtns.length; i++) {
 }
 
 /////// ---- PSEUDO CODE -----///////////////////////
-/*
-
-
-
-*/
-
-/

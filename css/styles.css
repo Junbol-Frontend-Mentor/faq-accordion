@@ -1,17 +1,178 @@
-/* Error: expected "{".
- *     ,
- * 238 | /
- *     |  ^
- *     '
- *   sass\styles.scss 238:2  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a     \2577 \a 238 \2502  /\a     \2502   ^\a     \2575 \a   sass\\styles.scss 238:2  root stylesheet';
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body section,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+/* QUERY FOR MOBILE FIRST */
+html,
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  background-color: hsl(292, 16%, 49%);
+}
+
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.container__topPart {
+  width: 100%;
+  height: 20rem;
+  background-image: url(../assets/images/background-pattern-mobile.svg);
+  background-size: cover;
+}
+.container__bottomPart {
+  width: 100%;
+  height: 20rem;
+  margin-bottom: 2rem;
+  background-color: hsl(292, 16%, 49%);
+}
+
+.whiteCard {
+  margin-top: 8rem;
+  width: 90%;
+  min-height: auto; /* Use min-height to accommodate varying content sizes */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background-color: hsl(0, 0%, 100%);
+}
+.whiteCard__header {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  line-height: 0.5;
+  color: hsl(0, 0%, 100%);
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+.whiteCard__header img {
+  margin-right: 2rem;
+}
+.whiteCard__header h1 {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1.5;
+  color: hsl(0, 0%, 0%);
+}
+
+.accordion-grp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.accordion-grp__accordion {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 10px;
+  text-align: left;
+  border: none;
+  outline: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: hsl(241, 100%, 89%);
+  transition: background-color 0.2s ease;
+}
+.accordion-grp__accordion:hover {
+  background-color: hsl(275, 100%, 97%);
+}
+.accordion-grp__accordion.active {
+  background-color: hsl(275, 100%, 97%);
+}
+.accordion-grp__accordion.active:after {
+  content: url(../assets/images/icon-minus.svg);
+}
+.accordion-grp__accordion:after {
+  content: url(../assets/images/icon-plus.svg);
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+.accordion-grp__panel {
+  padding: 0 18px;
+  background-color: hsl(292, 42%, 14%);
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 0px 0px 10px 10px;
+  transition: max-height 0.2s ease-out;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: hsl(0, 0%, 100%);
+}
+.accordion-grp__panel p {
+  margin: 1rem;
+}
+
+/*why overflow: hidden is used:
+Smooth Transition: When combined with max-height, it helps create a smooth transition effect when expanding or collapsing the panel. The max-height is animated from 0 to a desired value, and overflow: hidden ensures that content doesn't spill out during the animation.
+Prevent Scrollbars: It prevents scrollbars from appearing when the panel is in its collapsed state, which would otherwise happen if the content overflows the container.*/
+.attribution {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  color: hsl(0, 0%, 100%);
+  margin-bottom: 4rem;
+}
+.attribution a {
+  color: hsl(0, 0%, 0%);
+  text-decoration: none;
+}
+
+/* Media Query for Desktops and Tablets */
+@media (min-width: 768px) {
+  .main {
+    padding: 10rem;
+  }
+  .container {
+    width: 50hv;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+  .whiteCard {
+    width: 70%;
+  }
+}
+/* 
+ */
+
+/*# sourceMappingURL=styles.css.map */

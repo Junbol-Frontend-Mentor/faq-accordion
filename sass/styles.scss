@@ -68,11 +68,11 @@ body {
 
 .container {
   width: 100%;
-  min-height: auto;
+  min-height: 80vh;
   display: flex;
   position: relative;
   flex-direction: column;
-  margin-bottom: 2rem;
+  //margin-bottom: 2rem;
   //justify-content:center;
   //background-color: burlywood;
   &__topPart {
@@ -85,8 +85,10 @@ body {
   &__bottomPart {
     width: 100%;
     height: 20rem;
+    margin-bottom: 2rem;
     background-color: color('grayish-purple');
     //background-color: red;
+
   }
 }
 
@@ -99,7 +101,7 @@ body {
   position: absolute;
   border-radius: 15px;
   padding: 1rem;
-  margin-bottom:2rem;
+  margin-bottom: 2rem;
   background-color: color('white');
   //background-color: chocolate;
   &__header {
@@ -173,15 +175,12 @@ body {
     border-radius: 0px 0px 10px 10px;
     transition: max-height 0.2s ease-out;
     @include typography(400, 1rem, 1.5rem, color('white'));
-     // Reset margins for text elements inside the panel
-     p {
+    // Reset margins for text elements inside the panel
+    p {
       margin: 1rem;
-     }
+    }
   }
 }
-
-
-
 
 /*why overflow: hidden is used:
 Smooth Transition: When combined with max-height, it helps create a smooth transition effect when expanding or collapsing the panel. The max-height is animated from 0 to a desired value, and overflow: hidden ensures that content doesn't spill out during the animation.
@@ -193,12 +192,11 @@ Prevent Scrollbars: It prevents scrollbars from appearing when the panel is in i
 .attribution {
   width: 100%;
   display: flex;
-  position: absolute;
   justify-content: center;
   margin-top: 2rem;
-bottom: 8rem; /* Keeps the footer at the bottom but only after all other content */
   color: color('white');
-
+  margin-bottom:4rem;
+  //background-color: darkgoldenrod;
   a {
     color: color('black');
     text-decoration: none;
@@ -215,7 +213,6 @@ bottom: 8rem; /* Keeps the footer at the bottom but only after all other content
 
   .container {
     width: 50hv;
-    min-height: 100vh;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -225,14 +222,10 @@ bottom: 8rem; /* Keeps the footer at the bottom but only after all other content
     width: 70%;
   }
 
-  .attribution {
-    grid-area: footer; // Assigns the footer to the 'footer' area
-  }
+ 
 }
 
 /////// -------- NOTES --------------------//////////
 ///
 /* 
  */
-
-/
