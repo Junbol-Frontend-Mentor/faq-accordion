@@ -25,8 +25,8 @@ This is a solution to the [FAQ accordion challenge on Frontend Mentor](https://w
 
 ### Links
 
-- Solution URL: (https://github.com/Junbol-Frontend-Mentor/results-summary-component)
-- Live Site URL: (https://junbol-frontend-mentor.github.io/results-summary-component/)
+- Solution URL: (https://github.com/Junbol-Frontend-Mentor/faq-accordion)
+- Live Site URL: (https://junbol-frontend-mentor.github.io/faq-accordion/)
 
 ## My process
 
