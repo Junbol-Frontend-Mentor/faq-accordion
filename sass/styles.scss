@@ -112,9 +112,13 @@ body {
     margin-top: 1rem;
     padding: 0.5rem;
     //background-color: aqua; // for testing purposes
+
     img {
+      width: 3rem; /* Adjust the size as needed */
+      height: 3rem; /* Adjust the size as needed */
       margin-right: 2rem;
     }
+
     h1 {
       @include typography(800, 3rem, 1.5, color('black'));
     }

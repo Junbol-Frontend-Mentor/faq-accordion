@@ -76,6 +76,8 @@ body {
   padding: 0.5rem;
 }
 .whiteCard__header img {
+  width: 3rem; /* Adjust the size as needed */
+  height: 3rem; /* Adjust the size as needed */
   margin-right: 2rem;
 }
 .whiteCard__header h1 {
