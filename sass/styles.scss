@@ -156,7 +156,6 @@ body {
 
     &.active {
       background-color: color('light-pink');
-
       &:after {
         content: url(../assets/images/icon-minus.svg);
       }
