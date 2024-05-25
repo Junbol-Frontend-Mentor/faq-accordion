@@ -4,8 +4,6 @@
 let accordionBtns = document.getElementsByClassName('accordion-grp__accordion');
 
 
-//Seventh try
-
 // The solution was to create a for loop:..........
 
 // Summary: The solution required a for loop to iterate over multiple accordion buttons and attach an event listener to each one. 
@@ -31,8 +29,6 @@ for (let i = 0; i < accordionBtns.length; i++) {  // Here I added a click eventL
     }
   });
 }
-
-
 
 
 /////// ---- MOTES  -----///////////////////////
