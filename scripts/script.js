@@ -2,133 +2,46 @@
 
 // Select all elements with the specified class name
 let accordionBtns = document.getElementsByClassName('accordion-grp__accordion');
-//let accordionPanel = document.getElementsByClassName('accordion-grp__panel');//❌ wrong way better using 'this'  let panel = this.nextElementSibling;
 
-//------- DEFINING FUNCTIONS    -------------
-//First try
-// Iterate over each element in the collection
-
-/* for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].addEventListener('click', () => {
-    if ( nextElementSibling.style.display = none) {
-      nextElementSibling.style.display = block;
-    }
-    else {
-      nextElementSibling.style.display = none
-    }
-   
-  });
-}
- */
-
-//Second try
-// Iterate over each element in the collection
-
-/* 
-for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].nextElementSibling.addEventListener('click', () => {
-    if (style.display === none) {
-      style.display === block;
-    }
-    else {
-      style.display = none
-    }
-  });
-}
- */
-
-//Third try
-// Iterate over each element in the collection
-
-/* for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].addEventListener('click', () => {//❌ I can't use arrow function when using "this" 
-    this.classList.toggle("active"); // to add the 'active" class dynamically to the button
-    this.nextElementSibling.style.display("block")//❌
-  });
-} */
-
-//Fourth try
-// 1. Iterate over each button
-// 2. Add and click eventListener to each button
-// 2. Toggle the button display property value by adding a active class dynamically using a Regular Funcction instead
-
-/* for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].addEventListener('click', function ()  {//✅ to use the "this" keyword I need to use a Regular Function instead
-    this.classList.toggle("active"); // ✅ to add the 'active" class dynamically to the button
-    this.nextElementSibling.style.display("block")//✅ to add the block display property dynamically use nextElementSibling to refer to the panel
-    if (this.style.display === none) {//❌ 'this' is still the clicked button not the panel
-      this.style.display === block;//❌ I need to use the assign symbol and strings & t
-    }
-    else {
-      this.style.display === none//❌ I need to use the assign symbol and strings and 'this' is always the clicked button not the panel
-    }
-  });
-} */
-
-//Fifth try
-// 1. Iterate over each button
-// 2. Add and click eventListener to each button
-// 3. Toggle the button display property value by adding a active class dynamically using a Regular Function instead
-// 4. Instead of using 'this' access the panel with DOM and save it in a variable
-
-/* for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].addEventListener('click', function ()  {//✅ to use the "this" keyword I need to use a Regular Function instead
-    accordionPanel.classList.toggle("active"); // ✅ to add the 'active" class dynamically to the button
-    accordionPanel.nextElementSibling.style.display("block")//❌ wrong value and to display property dynamically use nextElementSibling to refer to the panel
-    if (accordion-grp__panel.style.display === 'none') {//❌ wrong way better using 'this'  let panel = this.nextElementSibling; 
-      accordionPanel.style.display = 'block';//❌ wrong way better using 'this'  let panel = this.nextElementSibling; 
-    }
-    else {
-      accordionPanel.style.display = 'none';//❌ wrong way better using 'this'  let panel = this.nextElementSibling; 
-    }
-  };
-} */
-
-//Sixth try
-// 1. Iterate over each button
-// 2. Add and click eventListener to each button
-// 3. Toggle the button display property value by adding a active class dynamically using a Regular Function instead
-// 4. Instead of using 'this' access the panel with DOM and save it in a variable
-
-/* 
-for (let i = 0; i < accordionBtns.length; i++) {
-  // Attach an event listener to the element at index i
-  accordionBtns[i].addEventListener('click', function ()  {//✅ to use the "this" keyword I need to use a Regular Function instead
-   this.classList.toggle("active"); // ✅ to add the 'active" class dynamically to the button
-    this.nextElementSibling.style.display("none")//❌ this statement is not needed
-        // Reference the panel using 'this.nextElementSibling'
-        let panel = this.nextElementSibling; 
-
-    if ( panel.style.display === 'none') {//✅ 
-      panel.style.display = 'block';//✅ 
-    }
-    else {
-      panel.style.display = 'none';//✅ 
-    }
-});
-}; */
 
 //Seventh try
 
-for (let i = 0; i < accordionBtns.length; i++) {
+// The solution was to create a for loop:..........
+
+// Summary: The solution required a for loop to iterate over multiple accordion buttons and attach an event listener to each one. 
+// A normal function wouldn't suffice because we need to add the event listeners dynamically to multiple elements.
+
+
+for (let i = 0; i < accordionBtns.length; i++) {  // Here I added a click eventListener to the button and used a regular function because I needed to use the 'this'  keyword to refer to the button
   accordionBtns[i].addEventListener('click', function () {
-    this.classList.toggle('active');
+    
+    this.classList.toggle('active');// Using the Toggle method on the added 'active' class on the clicked button dynamically
 
-    let panel = this.nextElementSibling;
+    let panel = this.nextElementSibling;  // Select the next sibling element, which is the panel to be shown or hidden. nextElementSibling is like referring to the "next brother" or "next sibling" in the family of elements under the same parent.
+ 
 
-    if (panel.style.maxHeight) {
+    if (panel.style.maxHeight) {  // Check the current max-height of the panel to determine whether it's expanded or collapsed
+      // If panel.style.maxHeight is set, the panel is expanded
+      // Collapse the panel by setting maxHeight to null
       panel.style.maxHeight = null;
     } else {
-      panel.style.maxHeight = panel.scrollHeight + 'px';
+   // If panel.style.maxHeight is null, the panel is collapsed
+      // Expand the panel by setting maxHeight to its scrollHeight
+      panel.style.maxHeight = panel.scrollHeight + 'px';// The scrollHeight property returns the height of the content of an element, including content not visible on the screen due to overflow. It is essentially the full height of the element's content, regardless of whether it is visible.
     }
   });
 }
 
 
 
-/////// ---- PSEUDO CODE -----///////////////////////
+
+/////// ---- MOTES  -----///////////////////////
+/* 
+Why Use scrollHeight?
+Dynamic Content Height: Using scrollHeight ensures that the panel expands exactly to fit its content, regardless of how much content there is. This is useful for accordion elements where the amount of content can vary.
+Smooth Animation: Setting maxHeight to scrollHeight allows for a smooth expansion animation because the transition to the full content height is natural.
+
+scrollHeight in Action
+When you use scrollHeight, the browser calculates the height of the content inside the element, ensuring that the panel expands just enough to fit all the content without any overflow. This provides a seamless and flexible way to handle varying content sizes within an accordion.
+
+*/
